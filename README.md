@@ -1,7 +1,10 @@
 # airflow-sandbox
+It is easy to create apache airflow DAGs, but it is really hard to create meaningful architectures w/ Airflow.
 
+1. airflow-sandbox :  meaningful scenario w/ GCP Cloud Composer
+2. airflow-sandbox/core : fundamentals of airflow
 
-### How To Start
+## How To Start
 
 1. Create environment w/ 
    - `conda create -n airflow-sandbox python=3.7 anaconda`
@@ -22,3 +25,7 @@
    - `airflow list_dags`
    - `airflow list_tasks my_first_dag_v2`
    - `airflow test my_first_dag_v2 print_hello 2019-05-22`
+
+## High Level Architecture
+   
+![Image](doc/airflow-sandbox-architecture.png)
