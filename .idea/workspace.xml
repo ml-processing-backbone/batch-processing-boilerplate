@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7af6ee2-1cc1-440a-bae8-96130d271776" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/basic-dag.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_operator_DAG.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorial.py" beforeDir="false" afterPath="$PROJECT_DIR$/bash_operator_DAG.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/airflow-sandbox-architecture.gslides" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,6 +104,11 @@
             <path>
               <item name="airflow-sandbox" type="b2602c69:ProjectViewProjectNode" />
               <item name="airflow-sandbox" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="airflow-sandbox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="airflow-sandbox" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -274,7 +279,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558558822870</updated>
-      <workItem from="1558558824624" duration="5188000" />
+      <workItem from="1558558824624" duration="5592000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize">
       <created>1558559052269</created>
@@ -339,11 +344,32 @@
       <option name="project" value="LOCAL" />
       <updated>1558620601818</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="PythonOperator core concepts">
+      <created>1558620688886</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1558620688886</updated>
+    </task>
+    <task id="LOCAL-00011" summary="BashOperator core concepts">
+      <created>1558620697891</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1558620697891</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Initialize">
+      <created>1558620705698</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1558620705698</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5188000" />
+    <option name="totallyTimeSpent" value="5592000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="745" extended-state="6" />
@@ -387,11 +413,11 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initialize" />
     <MESSAGE value="template airflow file for IntelliJ template files" />
-    <MESSAGE value="BashOperator core concepts" />
     <MESSAGE value="PythonOperator core concepts" />
-    <option name="LAST_COMMIT_MESSAGE" value="PythonOperator core concepts" />
+    <MESSAGE value="BashOperator core concepts" />
+    <MESSAGE value="Initialize" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initialize" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -423,6 +449,9 @@
           <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="40" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/airflow-sandbox-architecture.gslides">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/bash_operator_DAG.py">
       <provider selected="true" editor-type-id="text-editor">
