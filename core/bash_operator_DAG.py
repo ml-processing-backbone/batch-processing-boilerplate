@@ -26,6 +26,7 @@ t1 = BashOperator(
     bash_command='date',
     dag=dag)
 
+
 t2 = BashOperator(
     task_id='sleep',
     bash_command='sleep 5',
