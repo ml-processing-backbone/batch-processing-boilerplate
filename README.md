@@ -18,3 +18,7 @@
    - `airflow scheduler`
    - Open `localhost:8080` in your web browser
 4. Copy dag files into dags folder like `cp basic-dag.py ~/airflow/dags`
+5. To test the dag
+   - `airflow list_dags`
+   - `airflow list_tasks my_first_dag_v2`
+   - `airflow test my_first_dag_v2 print_hello 2019-05-22`
