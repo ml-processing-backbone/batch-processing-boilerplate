@@ -26,6 +26,6 @@ It is easy to create apache airflow DAGs, but it is really hard to create meanin
    - `airflow list_tasks my_first_dag_v2`
    - `airflow test my_first_dag_v2 print_hello 2019-05-22`
 
-## High Level Architecture
+## High Level Architecture - /product-analytics
    
 ![Image](doc/airflow-sandbox-architecture.png)
