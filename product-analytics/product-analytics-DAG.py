@@ -1,0 +1,57 @@
+import logging
+
+from airflow import DAG
+from airflow.operators.bash_operator import BashOperator
+from airflow.contrib.sensors.sftp_sensor import SFTPSensor
+from airflow.operators.python_operator import PythonOperator
+from datetime import datetime, timedelta
+
+#
+default_args = {
+    'owner': 'airflow',
+    'depends_on_past': False,
+    'start_date': datetime(2019, 1, 1),
+    'email': ['tansudasli@gmail.com'],
+    'email_on_failure': False,
+    'email_on_retry': False,
+    'retries': 2,
+    'retry_delay': timedelta(minutes=5),
+    # 'queue': 'bash_queue',
+    # 'pool': 'backfill',
+    # 'priority_weight': 10,
+    # 'end_date': datetime(2016, 1, 1),
+}
+
+with DAG('product-analytics', default_args=default_args, schedule_interval=timedelta(minutes=10)) as dag:
+
+    # TODO: not implemented for now
+    # listen customers FTP server folder w/ sensor
+    # define sftp-default connection in Airflow UI
+    t1 = SFTPSensor(
+        task_id='listen-sftp-server',
+        bash_command=''
+    )
+
+    # TODO: not implemented for now
+    # copy from sftp to gcp storage
+    t2 = BashOperator(
+        task_id='copy-for-datalake',
+        bash_command=''
+    )
+
+    # copy from gcs to process bucket for analytical calculations
+    t3 = BashOperator(
+        task_id='copy-for-analytics',
+        bash_command=''
+    )
+
+    # git clone average-prices-by-product-enhanced.py file
+    # deploy to GCP dataflow as a beam job
+
+    # check GCP dataflow job status
+
+    # Listen output folder w/ sensor
+    # transfer output file to SFTP server
+
+
+    t3 >> t2 >> t1
