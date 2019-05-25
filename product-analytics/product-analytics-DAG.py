@@ -32,50 +32,59 @@ with DAG('product-analytics', default_args=default_args, schedule_interval=timed
     # TODO: not implemented
     # listen customers FTP server folder w/ sensor
     # define sftp-default connection in Airflow UI
-    t1 = SFTPSensor(
-        task_id='listen-sftp-server',
-        bash_command=''
-    )
+    # t1 = SFTPSensor(
+    #     task_id='listen-sftp-server',
+    # )
 
     # TODO: not implemented
     # copy from sftp to gcp storage's incoming folder
     # scenario will start right from here !
-    t2 = SFTPOperator(
-        task_id='transfer-to-incoming',
+    # t2 = SFTPOperator(
+    #     task_id='transfer-to-incoming',
+    # )
+
+    # Listen incoming folder w/ sensor
+    t3 = GoogleCloudStorageObjectSensor(
+        task_id='listen-incoming-file',
         bash_command=''
     )
 
     # copy from gcs to datalake for raw data storing
-    t3 = GoogleCloudStorageToGoogleCloudStorageOperator(
+    t4 = GoogleCloudStorageToGoogleCloudStorageOperator(
         task_id='copy-to-datalake',
         bash_command=''
     )
 
     # copy from gcs to process for analytical calculations
-    t4 = GoogleCloudStorageToGoogleCloudStorageOperator(
+    t5 = GoogleCloudStorageToGoogleCloudStorageOperator(
         task_id='copy-to-processing',
         bash_command=''
     )
 
     # git clone average-prices-by-product-enhanced.py file ?????
     # deploy to GCP dataflow as a beam job, and check GCP dataflow job status
-    t5 = DataFlowPythonOperator(
+    t6 = DataFlowPythonOperator(
         task_id='deploy-averages-prices-by-product-job',
         bash_command=''
     )
 
     # Listen output folder w/ sensor
-    t5 = GoogleCloudStorageObjectSensor(
-        task_id='copy-to-processing',
+    t7 = GoogleCloudStorageObjectSensor(
+        task_id='listen-output-file',
         bash_command=''
     )
 
-    # TODO: not implemented for now
+    # TODO: not implemented
     # transfer output file to SFTP server
-    t6 = SFTPOperator(
-        task_id='transfer-to-datalake',
-        bash_command=''
-    )
+    # t8 = SFTPOperator(
+    #     task_id='transfer-to-sftp-server',
+    #     bash_command=''
+    # )
 
-    t3 >> t2 >> t1
+    # t3 >> t2 >> t1
+    t4 >> t3
+    t5 >> t3
+    t7 >> t6 >> t3
+    # t8 >> t7
+
 
