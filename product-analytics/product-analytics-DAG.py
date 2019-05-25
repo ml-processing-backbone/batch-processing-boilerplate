@@ -4,6 +4,9 @@ from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.contrib.sensors.sftp_sensor import SFTPSensor
 from airflow.operators.python_operator import PythonOperator
+from airflow.contrib.operators.dataflow_operator import DataFlowPythonOperator
+from airflow.contrib.operators.file_to_gcs import FileToGoogleCloudStorageOperator
+from airflow.contrib.operators.gcs_to_gcs import GoogleCloudStorageToGoogleCloudStorageOperator
 from datetime import datetime, timedelta
 
 #
