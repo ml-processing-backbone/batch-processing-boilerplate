@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7af6ee2-1cc1-440a-bae8-96130d271776" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/product-analytics/product-analytics-DAG.py" beforeDir="false" afterPath="$PROJECT_DIR$/product-analytics/product-analytics-DAG.py" afterDir="false" />
-    </list>
+    <list default="true" id="a7af6ee2-1cc1-440a-bae8-96130d271776" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +54,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/product-analytics/product-analytics-DAG.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
+            <state relative-caret-position="411">
               <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -132,7 +130,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1268" />
+    <option name="width" value="1249" />
     <option name="height" value="745" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -342,7 +340,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558558822870</updated>
-      <workItem from="1558558824624" duration="17899000" />
+      <workItem from="1558558824624" duration="18149000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize">
       <created>1558559052269</created>
@@ -547,11 +545,25 @@
       <option name="project" value="LOCAL" />
       <updated>1558812448599</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="average-product-prices (backbone completed)">
+      <created>1558813974706</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1558813974706</updated>
+    </task>
+    <task id="LOCAL-00031" summary="average-product-prices (backbone completed)">
+      <created>1558814067942</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1558814067942</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17899000" />
+    <option name="totallyTimeSpent" value="18149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1268" height="745" extended-state="0" />
@@ -613,7 +625,8 @@
     <MESSAGE value="average-product-prices (deploy DAG to Cloud Composer)" />
     <MESSAGE value="average-product-prices (architecture updated)" />
     <MESSAGE value="average-product-prices" />
-    <option name="LAST_COMMIT_MESSAGE" value="average-product-prices" />
+    <MESSAGE value="average-product-prices (backbone completed)" />
+    <option name="LAST_COMMIT_MESSAGE" value="average-product-prices (backbone completed)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -697,9 +710,12 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/doc/airflow-sandbox-architecture.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/product-analytics/product-analytics-DAG.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
+        <state relative-caret-position="411">
           <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
