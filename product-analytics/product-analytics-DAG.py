@@ -29,7 +29,7 @@ default_args = {
 
 with DAG('product-analytics', default_args=default_args, schedule_interval=timedelta(minutes=10)) as dag:
 
-    # TODO: not implemented for now
+    # TODO: not implemented
     # listen customers FTP server folder w/ sensor
     # define sftp-default connection in Airflow UI
     t1 = SFTPSensor(
@@ -37,31 +37,40 @@ with DAG('product-analytics', default_args=default_args, schedule_interval=timed
         bash_command=''
     )
 
-    # TODO: not implemented for now
-    # copy from sftp to gcp storage
+    # TODO: not implemented
+    # copy from sftp to gcp storage's incoming folder
+    # scenario will start right from here !
     t2 = SFTPOperator(
-        task_id='transfer-to-datalake',
+        task_id='transfer-to-incoming',
         bash_command=''
     )
 
-    # copy from gcs to process bucket for analytical calculations
+    # copy from gcs to datalake for raw data storing
     t3 = GoogleCloudStorageToGoogleCloudStorageOperator(
-        task_id='copy-for-analytics',
+        task_id='copy-to-datalake',
+        bash_command=''
+    )
+
+    # copy from gcs to process for analytical calculations
+    t4 = GoogleCloudStorageToGoogleCloudStorageOperator(
+        task_id='copy-to-processing',
         bash_command=''
     )
 
     # git clone average-prices-by-product-enhanced.py file ?????
     # deploy to GCP dataflow as a beam job, and check GCP dataflow job status
-    t4 = DataFlowPythonOperator(
-        task_id='copy-for-analytics',
+    t5 = DataFlowPythonOperator(
+        task_id='deploy-averages-prices-by-product-job',
         bash_command=''
     )
 
     # Listen output folder w/ sensor
     t5 = GoogleCloudStorageObjectSensor(
-        task_id='copy-for-analytics',
+        task_id='copy-to-processing',
         bash_command=''
     )
+
+    # TODO: not implemented for now
     # transfer output file to SFTP server
     t6 = SFTPOperator(
         task_id='transfer-to-datalake',
