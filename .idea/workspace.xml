@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7af6ee2-1cc1-440a-bae8-96130d271776" name="Default Changelist" comment="average-product-prices (deploy DAG to Cloud Composer)">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/tansudasli.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-analytics/prepare-environment.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="a7af6ee2-1cc1-440a-bae8-96130d271776" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/product-analytics/product-analytics-DAG.py" beforeDir="false" afterPath="$PROJECT_DIR$/product-analytics/product-analytics-DAG.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,13 +56,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/product-analytics/product-analytics-DAG.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="54" />
+            <state relative-caret-position="488">
+              <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
                 <element signature="e#217#597#0" />
-                <element signature="e#768#799#0" />
-                <element signature="e#1389#1412#0" />
               </folding>
             </state>
           </provider>
@@ -347,7 +342,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558558822870</updated>
-      <workItem from="1558558824624" duration="16888000" />
+      <workItem from="1558558824624" duration="17899000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize">
       <created>1558559052269</created>
@@ -545,11 +540,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558747344269</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="average-product-prices">
+      <created>1558812448599</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1558812448599</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16888000" />
+    <option name="totallyTimeSpent" value="17899000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1268" height="745" extended-state="0" />
@@ -610,7 +612,8 @@
     <MESSAGE value="average-product-prices (tasks updated w/ valid Operators and Sensors)" />
     <MESSAGE value="average-product-prices (deploy DAG to Cloud Composer)" />
     <MESSAGE value="average-product-prices (architecture updated)" />
-    <option name="LAST_COMMIT_MESSAGE" value="average-product-prices (architecture updated)" />
+    <MESSAGE value="average-product-prices" />
+    <option name="LAST_COMMIT_MESSAGE" value="average-product-prices" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -696,13 +699,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/product-analytics/product-analytics-DAG.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="54" />
+        <state relative-caret-position="488">
+          <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
             <element signature="e#217#597#0" />
-            <element signature="e#768#799#0" />
-            <element signature="e#1389#1412#0" />
           </folding>
         </state>
       </provider>
