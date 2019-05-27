@@ -14,12 +14,14 @@ export INGESTION_BUCKET_NAME=sandbox-datalake-123
 export AIRFLOW_BUCKET_NAME=europe-west1-airflow-cluste-0bf08843-bucket
 
 
-echo "***** create buckets for ingestion"
+# -------------------------------  preparations -------------------------
+echo "***** create ingestion buckets"
 gsutil mb -b on gs://${INGESTION_BUCKET_NAME}
 
 # ${BUCKET_NAME}/incoming
 # ${BUCKET_NAME}/datalake
 # ${BUCKET_NAME}/processing
+
 
 echo "***** transfer DAG file into airflow"
 gsutil cp product-analytics/product-analytics-DAG.py gs://${AIRFLOW_BUCKET_NAME}/dags
@@ -34,9 +36,9 @@ echo "***** transfer files for ingestion"
 
 for FILE_SUFFIX in 001 002 003 004 005
 do
-   gsutil cp ./dataset/sales_transactions_${FILE_SUFFIX}.csv gs://${INGESTION_BUCKET_NAME}
+   gsutil cp ./dataset/sales_transactions_${FILE_SUFFIX}.csv gs://${INGESTION_BUCKET_NAME}/incoming
 
-   sleep 1m
+   sleep 2m
 
 done
 
