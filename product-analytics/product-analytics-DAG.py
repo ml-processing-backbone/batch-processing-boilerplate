@@ -27,6 +27,8 @@ default_args = {
     # 'end_date': datetime(2016, 1, 1),
 }
 
+INGESTION_BUCKET_NAME = "sandbox-datalake-123"
+
 with DAG('product-analytics', default_args=default_args, schedule_interval=timedelta(minutes=10)) as dag:
 
     # TODO: not implemented
@@ -44,21 +46,28 @@ with DAG('product-analytics', default_args=default_args, schedule_interval=timed
     # )
 
     # Listen incoming folder w/ sensor
+    template_fields = [INGESTION_BUCKET_NAME, '/incoming/sales_transactions_*']
     t3 = GoogleCloudStorageObjectSensor(
         task_id='listen-incoming-file',
-        bash_command=''
+        default_args=template_fields
     )
 
     # copy from gcs to datalake for raw data storing
+    template_fields = (INGESTION_BUCKET_NAME, 'incoming/sales_transactions_*',
+                       INGESTION_BUCKET_NAME, 'datalake/sales_transactions_*')
     t4 = GoogleCloudStorageToGoogleCloudStorageOperator(
         task_id='copy-to-datalake',
-        bash_command=''
+        default_args=template_fields,
+        move_object=False
     )
 
     # copy from gcs to process for analytical calculations
+    template_fields = (INGESTION_BUCKET_NAME, 'incoming/sales_transactions_*',
+                       INGESTION_BUCKET_NAME, 'processing/sales_transactions_*')
     t5 = GoogleCloudStorageToGoogleCloudStorageOperator(
         task_id='copy-to-processing',
-        bash_command=''
+        default_args=template_fields,
+        move_object=True
     )
 
     # git clone average-prices-by-product-enhanced.py file ?????
