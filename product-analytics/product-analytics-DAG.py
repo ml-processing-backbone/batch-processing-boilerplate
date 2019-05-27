@@ -27,7 +27,14 @@ default_args = {
     # 'end_date': datetime(2016, 1, 1),
 }
 
+PROJECT = "sandbox-236618"
+REGION = "europe-west1"
+ZONE = "europe-west1-a"
 INGESTION_BUCKET_NAME = "sandbox-datalake-123"
+BEAM_BUCKET_NAME = "beam-pipelines-123"
+BEAM_FILE_NAME = "average-prices-by-product-enhanced"
+
+
 
 with DAG('product-analytics', default_args=default_args, schedule_interval=timedelta(minutes=10)) as dag:
 
@@ -52,6 +59,7 @@ with DAG('product-analytics', default_args=default_args, schedule_interval=timed
         default_args=template_fields
     )
 
+    # TODO: better file structure can be defined, such as monthly aggregation datalake/sales/05/sales_transactions_*
     # copy from gcs to datalake for raw data storing
     template_fields = (INGESTION_BUCKET_NAME, 'incoming/sales_transactions_*',
                        INGESTION_BUCKET_NAME, 'datalake/sales_transactions_*')
@@ -65,22 +73,34 @@ with DAG('product-analytics', default_args=default_args, schedule_interval=timed
     template_fields = (INGESTION_BUCKET_NAME, 'incoming/sales_transactions_*',
                        INGESTION_BUCKET_NAME, 'processing/sales_transactions_*')
     t5 = GoogleCloudStorageToGoogleCloudStorageOperator(
-        task_id='copy-to-processing',
+        task_id='move-to-processing',
         default_args=template_fields,
         move_object=True
     )
 
     # git clone average-prices-by-product-enhanced.py file ?????
     # deploy to GCP dataflow as a beam job, and check GCP dataflow job status
+    options = {'autoscalingAlgorithm': 'BASIC',
+               'maxNumWorkers': '50',
+               # 'start': '{{ds}}',
+               'partitionType': 'DAY'}
+    dataflow_default_options = {'project': PROJECT,
+                                'region': REGION,
+                                'zone': ZONE,
+                                'stagingLocation': 'gs://' + BEAM_BUCKET_NAME + '/staging',
+                                'tempLocation': 'gs://' + BEAM_BUCKET_NAME + '/temp'}
+    template_fields = [options, dataflow_default_options, BEAM_FILE_NAME]
     t6 = DataFlowPythonOperator(
         task_id='deploy-averages-prices-by-product-job',
-        bash_command=''
+        default_args=template_fields,
+        py_file=''
     )
 
     # Listen output folder w/ sensor
+    template_fields = [INGESTION_BUCKET_NAME, '/output/sales_transactions_*']
     t7 = GoogleCloudStorageObjectSensor(
         task_id='listen-output-file',
-        bash_command=''
+        default_args=template_fields
     )
 
     # TODO: not implemented
@@ -92,7 +112,7 @@ with DAG('product-analytics', default_args=default_args, schedule_interval=timed
 
     # t3 >> t2 >> t1
     t4 >> t3
-    t5 >> t3
+    t5 >> t4
     t7 >> t6 >> t3
     # t8 >> t7
 
