@@ -4,7 +4,7 @@ echo "edit env variables "
 echo "install airflow-cluster and enable dataflow apis etc.."
 echo "run scripts inside product-analytics folder !!"
 
-export GCP_PROJECT_NAME=sandbox-236618
+export PROJECT=sandbox-236618
 
 export BEAM_BUCKET_NAME=beam-pipelines-123
 export BEAM_FILE_NAME=average-prices-by-product-enhanced
@@ -21,6 +21,7 @@ gsutil mb -b on gs://${INGESTION_BUCKET_NAME}
 # ${BUCKET_NAME}/incoming
 # ${BUCKET_NAME}/datalake
 # ${BUCKET_NAME}/processing
+# ${BUCKET_NAME}/output
 
 
 echo "***** transfer DAG file into airflow"
@@ -36,7 +37,7 @@ echo "***** transfer files for ingestion"
 
 for FILE_SUFFIX in 001 002 003 004 005
 do
-   gsutil cp ./dataset/sales_transactions_${FILE_SUFFIX}.csv gs://${INGESTION_BUCKET_NAME}/incoming
+   gsutil cp ./dataset/sales_transactions_${FILE_SUFFIX}.csv gs://${INGESTION_BUCKET_NAME}/incomingp
 
    sleep 2m
 
