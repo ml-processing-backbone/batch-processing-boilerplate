@@ -1,21 +1,17 @@
-import logging
+
 
 from airflow import DAG
-from airflow.operators.bash_operator import BashOperator
-from airflow.contrib.sensors.sftp_sensor import SFTPSensor
-from airflow.contrib.sensors.gcs_sensor import GoogleCloudStorageObjectSensor
-from airflow.contrib.operators.sftp_operator import SFTPOperator
-from airflow.operators.python_operator import PythonOperator
-from airflow.contrib.operators.dataflow_operator import DataFlowPythonOperator
-from airflow.contrib.operators.file_to_gcs import FileToGoogleCloudStorageOperator
+from airflow.contrib.sensors.gcs_sensor import GoogleCloudStoragePrefixSensor
 from airflow.contrib.operators.gcs_to_gcs import GoogleCloudStorageToGoogleCloudStorageOperator
+from airflow.contrib.operators.dataflow_operator import DataFlowPythonOperator
+
 from datetime import datetime, timedelta
 
 #
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'start_date': datetime(2019, 1, 1),
+    'start_date': datetime(2019, 5, 28),
     'email': ['tansudasli@gmail.com'],
     'email_on_failure': False,
     'email_on_retry': False,
@@ -30,13 +26,11 @@ default_args = {
 PROJECT = "sandbox-236618"
 REGION = "europe-west1"
 ZONE = "europe-west1-a"
-INGESTION_BUCKET_NAME = "sandbox-datalake-123"
+INGESTION_BUCKET_NAME = "datalake-datasets-123"
 BEAM_BUCKET_NAME = "beam-pipelines-123"
-BEAM_FILE_NAME = "average-prices-by-product-enhanced"
+AVERAGE_PRICES_BY_PRODUCT_ENHANCED_FILE_NAME = "average-prices-by-product-enhanced"
 
-
-
-with DAG('product-analytics', default_args=default_args, schedule_interval=timedelta(minutes=10)) as dag:
+with DAG('product-analytics', default_args=default_args, schedule_interval=timedelta(seconds=10)) as dag:
 
     # TODO: not implemented
     # listen customers FTP server folder w/ sensor
@@ -53,67 +47,52 @@ with DAG('product-analytics', default_args=default_args, schedule_interval=timed
     # )
 
     # Listen incoming folder w/ sensor
-    template_fields = [INGESTION_BUCKET_NAME, '/incoming/sales_transactions_*']
-    t3 = GoogleCloudStorageObjectSensor(
+    t3 = GoogleCloudStoragePrefixSensor(
         task_id='listen-incoming-file',
-        default_args=template_fields
+        bucket='datalake-datasets-123',
+        prefix='incoming/sales_transactions_*'
     )
 
     # TODO: better file structure can be defined, such as monthly aggregation datalake/sales/05/sales_transactions_*
     # copy from gcs to datalake for raw data storing
-    template_fields = (INGESTION_BUCKET_NAME, 'incoming/sales_transactions_*',
-                       INGESTION_BUCKET_NAME, 'datalake/sales_transactions_*')
     t4 = GoogleCloudStorageToGoogleCloudStorageOperator(
         task_id='copy-to-datalake',
-        default_args=template_fields,
+        source_bucket=INGESTION_BUCKET_NAME,
+        source_object='incoming/sales_transactions_*',
+        destination_bucket=INGESTION_BUCKET_NAME,
+        destination_object='datalake/sales_transactions_',
         move_object=False
     )
 
     # copy from gcs to process for analytical calculations
-    template_fields = (INGESTION_BUCKET_NAME, 'incoming/sales_transactions_*',
-                       INGESTION_BUCKET_NAME, 'processing/sales_transactions_*')
     t5 = GoogleCloudStorageToGoogleCloudStorageOperator(
         task_id='move-to-processing',
-        default_args=template_fields,
+        source_bucket=INGESTION_BUCKET_NAME,
+        source_object='incoming/sales_transactions_*',
+        destination_bucket=INGESTION_BUCKET_NAME,
+        destination_object='processing/sales_transactions_',
         move_object=True
     )
 
     # git clone average-prices-by-product-enhanced.py file ?????
     # deploy to GCP dataflow as a beam job, and check GCP dataflow job status
-    options = {'autoscalingAlgorithm': 'BASIC',
-               'maxNumWorkers': '50',
-               # 'start': '{{ds}}',
-               'partitionType': 'DAY'}
-    dataflow_default_options = {'project': PROJECT,
-                                'region': REGION,
-                                'zone': ZONE,
-                                'stagingLocation': 'gs://' + BEAM_BUCKET_NAME + '/staging',
-                                'tempLocation': 'gs://' + BEAM_BUCKET_NAME + '/temp'}
-    template_fields = [options, dataflow_default_options, BEAM_FILE_NAME]
+    options = {'autoscalingAlgorithm': 'NONE',
+               'maxNumWorkers': '2'}
+    dataflow_default_options = {
+        'project': PROJECT,
+        'region': REGION,
+        'stagingLocation': 'gs://' + BEAM_BUCKET_NAME + "/" + AVERAGE_PRICES_BY_PRODUCT_ENHANCED_FILE_NAME + '/staging',
+        'tempLocation': 'gs://' + BEAM_BUCKET_NAME + "/" + AVERAGE_PRICES_BY_PRODUCT_ENHANCED_FILE_NAME + '/temp'}
     t6 = DataFlowPythonOperator(
         task_id='deploy-averages-prices-by-product-job',
-        default_args=template_fields,
-        py_file=''
+        options=options,
+        dataflow_default_options=dataflow_default_options,
+        job_name=AVERAGE_PRICES_BY_PRODUCT_ENHANCED_FILE_NAME,
+        py_file='/home/airflow/gcs/data/average-prices-by-product-enhanced.py'
     )
 
-    # Listen output folder w/ sensor
-    template_fields = [INGESTION_BUCKET_NAME, '/output/sales_transactions_*']
-    t7 = GoogleCloudStorageObjectSensor(
-        task_id='listen-output-file',
-        default_args=template_fields
-    )
-
-    # TODO: not implemented
-    # transfer output file to SFTP server
-    # t8 = SFTPOperator(
-    #     task_id='transfer-to-sftp-server',
-    #     bash_command=''
-    # )
-
-    # t3 >> t2 >> t1
     t4 >> t3
-    t5 >> t4
-    t7 >> t6 >> t3
-    # t8 >> t7
+    t5 >> t3
+    t6 >> t3
 
 

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7af6ee2-1cc1-440a-bae8-96130d271776" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/tansudasli.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/tansudasli.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-analytics/average-prices-by-product-enhanced.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-analytics/xx.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-analytics/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/product-analytics/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-analytics/prepare-environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/product-analytics/prepare-environment.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-analytics/product-analytics-DAG.py" beforeDir="false" afterPath="$PROJECT_DIR$/product-analytics/product-analytics-DAG.py" afterDir="false" />
     </list>
@@ -21,21 +23,54 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/product-analytics/prepare-environment.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+            <state relative-caret-position="275">
+              <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/product-analytics/product-analytics-DAG.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="82" column="25" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
+              <folding>
+                <element signature="e#2#25#0" expanded="true" />
+                <element signature="e#655#678#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/product-analytics/xx.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="82" column="36" selection-start-line="82" selection-start-column="36" selection-end-line="82" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/product-analytics/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="326">
+                <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/product-analytics/product-analytics-DAG.py">
+        <entry file="file://$PROJECT_DIR$/product-analytics/average-prices-by-product-enhanced.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="91" column="23" lean-forward="true" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
-              <folding>
-                <element signature="e#677#1056#0" />
-                <element signature="e#1217#1240#0" />
-              </folding>
+            <state relative-caret-position="188">
+              <caret line="25" column="78" selection-start-line="25" selection-start-column="78" selection-end-line="25" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -53,6 +88,7 @@
     <findStrings>
       <find>owner</find>
       <find>GCP_PROJECT</find>
+      <find>paramiko</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -80,6 +116,9 @@
         <option value="$PROJECT_DIR$/product-analytics/simulate-ingestion.sh" />
         <option value="$PROJECT_DIR$/product-analytics/README.md" />
         <option value="$PROJECT_DIR$/product-analytics/prepare-environment.sh" />
+        <option value="$PROJECT_DIR$/product-analytics/product-analytics-2-DAG.py" />
+        <option value="$PROJECT_DIR$/product-analytics/average-prices-by-product-enhanced.py" />
+        <option value="$PROJECT_DIR$/product-analytics/xx.py" />
         <option value="$PROJECT_DIR$/product-analytics/product-analytics-DAG.py" />
       </list>
     </option>
@@ -92,7 +131,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1249" />
+    <option name="width" value="1022" />
     <option name="height" value="745" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -137,7 +176,7 @@
     <property name="TF_FMT" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/product-analytics/beam" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/product-analytics" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -148,8 +187,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/product-analytics/beam" />
       <recent name="$PROJECT_DIR$/product-analytics" />
+      <recent name="$PROJECT_DIR$/product-analytics/beam" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/doc" />
@@ -303,7 +342,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558558822870</updated>
-      <workItem from="1558558824624" duration="26402000" />
+      <workItem from="1558558824624" duration="42429000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize">
       <created>1558559052269</created>
@@ -571,28 +610,64 @@
       <option name="project" value="LOCAL" />
       <updated>1558952887554</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="architecture updated">
+      <created>1558957466239</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1558957466239</updated>
+    </task>
+    <task id="LOCAL-00040" summary="dataflow tasks completed">
+      <created>1558957500615</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1558957500615</updated>
+    </task>
+    <task id="LOCAL-00041" summary="minor update">
+      <created>1558957512465</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1558957512465</updated>
+    </task>
+    <task id="LOCAL-00042" summary="minor updates on intellij files">
+      <created>1558957528668</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1558957528668</updated>
+    </task>
+    <task id="LOCAL-00043" summary="minor updates">
+      <created>1558958204956</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1558958204956</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26402000" />
+    <option name="totallyTimeSpent" value="42429000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1249" height="745" extended-state="0" />
+    <frame x="0" y="23" width="1022" height="745" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Designer" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.27423364" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.3377551" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" weight="0.32924962" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="2" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32924962" />
       <window_info anchor="bottom" id="Flutter Performance" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="5" weight="0.32924962" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="5" visible="true" weight="0.30015314" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" />
       <window_info anchor="bottom" id="Run" order="8" />
@@ -619,8 +694,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="template airflow file for IntelliJ template files" />
-    <MESSAGE value="PythonOperator core concepts" />
     <MESSAGE value="BashOperator core concepts" />
     <MESSAGE value="Initialize" />
     <MESSAGE value="Architecture document" />
@@ -639,10 +712,14 @@
     <MESSAGE value="combined in prepare-environment.sh" />
     <MESSAGE value="sample dataset prepared" />
     <MESSAGE value="sftp simulation completed" />
-    <MESSAGE value="minor update" />
     <MESSAGE value="ingestion paths fixed" />
     <MESSAGE value="google listening sensors and moving files completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="google listening sensors and moving files completed" />
+    <MESSAGE value="architecture updated" />
+    <MESSAGE value="dataflow tasks completed" />
+    <MESSAGE value="minor update" />
+    <MESSAGE value="minor updates on intellij files" />
+    <MESSAGE value="minor updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor updates" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -658,47 +735,10 @@
     <entry file="file://$PROJECT_DIR$/doc/airflow-sandbox-architecture.gslides">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/python_operator_DAG.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/bash_operator_DAG.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="36" selection-start-line="29" selection-end-line="36" />
-          <folding>
-            <element signature="e#0#6#0" expanded="true" />
-            <element signature="e#285#663#0" />
-            <element signature="e#1026#1180#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/product-analytics/average-prices-by-product-enhanced.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/upload-to-Cloud-Composer.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="2" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="420">
-            <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -778,11 +818,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="150">
+            <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/product-analytics/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="150">
-            <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="326">
+            <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
           </first_editor>
           <second_editor />
         </state>
@@ -790,19 +840,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/product-analytics/prepare-environment.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        <state relative-caret-position="275">
+          <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/python_operator_DAG.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/bash_operator_DAG.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="24" selection-start-line="24" selection-end-line="25" selection-end-column="35" />
+          <folding>
+            <element signature="e#216#595#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/product-analytics/xx.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="82" column="36" selection-start-line="82" selection-start-column="36" selection-end-line="82" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/product-analytics/product-analytics-DAG.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="91" column="23" lean-forward="true" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
+        <state relative-caret-position="227">
+          <caret line="82" column="25" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
           <folding>
-            <element signature="e#677#1056#0" />
-            <element signature="e#1217#1240#0" />
+            <element signature="e#2#25#0" expanded="true" />
+            <element signature="e#655#678#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/product-analytics/average-prices-by-product-enhanced.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="25" column="78" selection-start-line="25" selection-start-column="78" selection-end-line="25" selection-end-column="78" />
         </state>
       </provider>
     </entry>
