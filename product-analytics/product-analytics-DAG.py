@@ -2,8 +2,10 @@
 
 from airflow import DAG
 from airflow.contrib.sensors.gcs_sensor import GoogleCloudStoragePrefixSensor
+from airflow.contrib.sensors.gcs_sensor import GoogleCloudStorageObjectSensor
 from airflow.contrib.operators.gcs_to_gcs import GoogleCloudStorageToGoogleCloudStorageOperator
 from airflow.contrib.operators.dataflow_operator import DataFlowPythonOperator
+
 
 from datetime import datetime, timedelta
 
@@ -64,7 +66,7 @@ with DAG('product-analytics', default_args=default_args, schedule_interval=timed
         move_object=False
     )
 
-    # copy from gcs to process for analytical calculations
+    # copy from incoming to process for analytical calculations
     t5 = GoogleCloudStorageToGoogleCloudStorageOperator(
         task_id='move-to-processing',
         source_bucket=INGESTION_BUCKET_NAME,
@@ -91,8 +93,36 @@ with DAG('product-analytics', default_args=default_args, schedule_interval=timed
         py_file='/home/airflow/gcs/data/average-prices-by-product-enhanced.py'
     )
 
+    # Listen output folder w/ sensor
+    t7 = GoogleCloudStoragePrefixSensor(
+        task_id='listen-output-file',
+        bucket='datalake-datasets-123',
+        prefix='output/sales_transactions_*'
+    )
+
+    # TODO: move-to-processed
+    # move processing to processed
+    t8 = GoogleCloudStorageToGoogleCloudStorageOperator(
+        task_id='move-to-processed',
+        source_bucket=INGESTION_BUCKET_NAME,
+        source_object='processing/sales_transactions_*',
+        destination_bucket=INGESTION_BUCKET_NAME,
+        destination_object='processed/sales_transactions_',
+        move_object=True
+    )
+
+    # TODO: not implemented
+    # transfer output file to SFTP server
+    # t9 = SFTPOperator(
+    #     task_id='transfer-to-sftp-server',
+    #     bash_command=''
+    # )
+
+    # t3 >> t2 >> t1
     t4 >> t3
     t5 >> t3
     t6 >> t3
+    t8 >> t7
+    # t9 >> t8
 
 

@@ -32,6 +32,7 @@ gsutil mb -b on gs://${INGESTION_BUCKET_NAME}
 # ${BUCKET_NAME}/datalake
 # ${BUCKET_NAME}/processing
 # ${BUCKET_NAME}/output
+# ${BUCKET_NAME}/processed
 
 echo "***** create beam pipeline bucket"
 gsutil mb -b on gs://${BEAM_BUCKET_NAME}
