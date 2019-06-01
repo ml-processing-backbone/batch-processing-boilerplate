@@ -16,14 +16,6 @@ export INGESTION_BUCKET_NAME=datalake-datasets-123
 export AIRFLOW_BUCKET_NAME=europe-west1-airflow-cluste-77117cb6-bucket  #get from gcs buckets and update
 
 
-# -------------------------------  set env ----------------------------
-#gcloud config set project ${PROJECT_ID}
-#gcloud config set composer/location ${REGION}
-#gcloud config set composer/zone ${ZONE}
-
-
-
-
 # -------------------------------  preparations -------------------------
 echo "***** create ingestion buckets"
 gsutil mb -b on gs://${INGESTION_BUCKET_NAME}
