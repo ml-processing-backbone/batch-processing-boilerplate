@@ -3,7 +3,6 @@
 
 ## How to Run
 
-
 1. CLI configurations
    1. Install GCP SDK on your local
    2. Install anaconda via `brew cask install anaconda` and 
